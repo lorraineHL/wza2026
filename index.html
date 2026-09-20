@@ -100,18 +100,18 @@ footer a{color:#0e7c8c}
 </nav>
 
 <div class="filter-row">
+  <span class="filter-label">View</span>
+<div class="viewtoggle" role="tablist" aria-label="Schedule view">
+  <button data-view="list">List</button><button data-view="grid" class="active">Calendar</button>
+</div>
+</div>
+
+<div class="filter-row" id="athleteRow">
   <span class="filter-label">Athletes</span>
 <div class="filter" id="athleteFilter">
   <button data-filter="all" class="active">All</button>
   <button data-filter="letty">Letty Li (Individual Open Female)</button>
   <button data-filter="pair">Kuo &amp; Aaron (Intermediate Co-Ed Pair)</button>
-</div>
-</div>
-
-<div class="filter-row">
-  <span class="filter-label">View</span>
-<div class="viewtoggle" role="tablist" aria-label="Schedule view">
-  <button data-view="list">List</button><button data-view="grid" class="active">Calendar</button>
 </div>
 </div>
 
@@ -460,6 +460,8 @@ document.querySelectorAll('#athleteFilter button').forEach(function(btn){
     var isGrid = (v === 'grid');
     list.style.display = isGrid ? 'none' : '';
     grid.style.display = isGrid ? '' : 'none';
+    var ar = document.getElementById('athleteRow');
+    if (ar) { ar.style.display = isGrid ? 'none' : ''; }
     document.querySelectorAll('.viewtoggle button').forEach(function(b){
       b.classList.toggle('active', b.getAttribute('data-view') === v);
     });
