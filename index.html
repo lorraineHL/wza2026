@@ -66,6 +66,12 @@ footer a{color:#0e7c8c}
 .block.pair{background:#d96c1f}
 .grid-table td.allday{background:#fff3e0;color:#7a4a1d;font-weight:700;text-align:center;border:none}
 .grid-table td.allday-lbl{background:#fff3e0;color:#7a4a1d;font-weight:700}
+
+.viewtoggle{display:flex;justify-content:center;margin:0 0 1.6rem}
+.viewtoggle button{border:2px solid #0e7c8c;background:#fff;color:#0e7c8c;font-weight:700;padding:.55rem 1.6rem;font-size:.88rem;cursor:pointer}
+.viewtoggle button:first-child{border-radius:999px 0 0 999px;border-right:none}
+.viewtoggle button:last-child{border-radius:0 999px 999px 0}
+.viewtoggle button.active{background:#0e7c8c;color:#fff}
 </style>
 </head>
 <body>
@@ -85,7 +91,6 @@ footer a{color:#0e7c8c}
   <a href="#fri">Friday · Sep 25</a>
   <a href="#sat">Saturday · Sep 26</a>
   <a href="#sun">Sunday · Sep 27</a>
-  <a href="#grid">Day Grid</a>
 </nav>
 
 <div class="filter" id="athleteFilter">
@@ -94,8 +99,11 @@ footer a{color:#0e7c8c}
   <button data-filter="pair">Kuo &amp; Aaron (Intermediate Co-Ed Pair)</button>
 </div>
 
+<div class="viewtoggle" role="tablist" aria-label="Schedule view">
+  <button data-view="list" class="active">List</button><button data-view="grid">Calendar</button>
+</div>
 
-<section class="schedule">
+<section class="schedule" id="listview">
   <h2>Schedule</h2>
   <!-- Cards are pre-sorted chronologically by earliest heat time within each day (TBD events last); the athlete filter only hides/shows cards, it does not reorder them. -->
 
@@ -324,10 +332,10 @@ footer a{color:#0e7c8c}
   </article>
 </section>
 
-<section class="gridsec" id="grid">
+<section class="gridsec" id="grid" style="display:none">
 <h2>Schedule Grid</h2>
 <p class="grid-note">Calendar-style view across the four stages — find time overlaps and where everyone is. All times PT. Blocks show division-level candidate heats; personal lane assignments are still pending. Block heights are approximate.</p>
-<h3>Friday · Sep 25</h3>
+<h3 id="grid-fri">Friday · Sep 25</h3>
 <div class="grid-scroll"><table class="grid-table">
 <thead><tr><th class="time"></th><th>Vinia Lifting Stage</th><th>Sandbox Stage</th><th>Gymreapers Arena</th><th>Public Beach</th></tr></thead><tbody>
 <tr><td class="time allday-lbl">All day</td><td colspan="4" class="allday">Golden Hour · 4K Beach Run — time TBD (Public Beach) · Letty + Kuo &amp; Aaron</td></tr>
@@ -352,7 +360,7 @@ footer a{color:#0e7c8c}
 <tr><td class="time">5:00 PM</td><td></td><td></td><td></td><td></td></tr>
 <tr><td class="time">5:30 PM</td><td></td><td></td><td></td><td></td></tr>
 </tbody></table></div>
-<h3>Saturday · Sep 26</h3>
+<h3 id="grid-sat">Saturday · Sep 26</h3>
 <div class="grid-scroll"><table class="grid-table">
 <thead><tr><th class="time"></th><th>Vinia Lifting Stage</th><th>Sandbox Stage</th><th>Gymreapers Arena</th><th>Public Beach</th></tr></thead><tbody>
 <tr><td class="time allday-lbl">All day</td><td colspan="4" class="allday">Golden Hour · 4K Beach Run — time TBD (Public Beach) · Letty + Kuo &amp; Aaron</td></tr>
@@ -377,7 +385,7 @@ footer a{color:#0e7c8c}
 <tr><td class="time">5:00 PM</td><td></td><td class="block letty" rowspan="2"><strong>Redline</strong><span class="who">Letty</span><span class="heats">H30 5:25 PM / H31 5:36 PM</span></td><td></td><td></td></tr>
 <tr><td class="time">5:30 PM</td><td></td><td></td><td></td></tr>
 </tbody></table></div>
-<h3>Sunday · Sep 27</h3>
+<h3 id="grid-sun">Sunday · Sep 27</h3>
 <div class="grid-scroll"><table class="grid-table">
 <thead><tr><th class="time"></th><th>Vinia Lifting Stage</th><th>Sandbox Stage</th><th>Gymreapers Arena</th><th>Public Beach</th></tr></thead><tbody>
 <tr><td class="time allday-lbl">All day</td><td colspan="4" class="allday">Golden Hour · 4K Beach Run — time TBD (Public Beach) · Letty + Kuo &amp; Aaron</td></tr>
@@ -428,6 +436,31 @@ document.querySelectorAll('#athleteFilter button').forEach(function(btn){
     });
   });
 });
+</script>
+
+
+<script>
+(function(){
+  var list = document.getElementById('listview');
+  var grid = document.getElementById('grid');
+  var nav = document.querySelectorAll('.daynav a');
+  function setView(v){
+    var isGrid = (v === 'grid');
+    list.style.display = isGrid ? 'none' : '';
+    grid.style.display = isGrid ? '' : 'none';
+    document.querySelectorAll('.viewtoggle button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-view') === v);
+    });
+    nav.forEach(function(a){
+      var id = a.getAttribute('href').replace('#','').replace('grid-','');
+      a.setAttribute('href', '#' + (isGrid ? 'grid-' + id : id));
+    });
+    if (isGrid) { grid.scrollIntoView({behavior:'smooth'}); }
+  }
+  document.querySelectorAll('.viewtoggle button').forEach(function(btn){
+    btn.addEventListener('click', function(){ setView(btn.getAttribute('data-view')); });
+  });
+})();
 </script>
 
 </body>
