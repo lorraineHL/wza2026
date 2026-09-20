@@ -72,6 +72,11 @@ footer a{color:#0e7c8c}
 .viewtoggle button:first-child{border-radius:999px 0 0 999px;border-right:none}
 .viewtoggle button:last-child{border-radius:0 999px 999px 0}
 .viewtoggle button.active{background:#0e7c8c;color:#fff}
+
+.filter-row{display:flex;align-items:center;justify-content:center;gap:.9rem;margin:0 0 1.2rem;flex-wrap:wrap}
+.filter-label{font-weight:700;color:#8a6d4a;text-transform:uppercase;font-size:.72rem;letter-spacing:.12em}
+.filter{margin:0}
+.viewtoggle{margin:0}
 </style>
 </head>
 <body>
@@ -93,14 +98,20 @@ footer a{color:#0e7c8c}
   <a href="#grid-sun">Sunday · Sep 27</a>
 </nav>
 
+<div class="filter-row">
+  <span class="filter-label">Athletes</span>
 <div class="filter" id="athleteFilter">
   <button data-filter="all" class="active">All</button>
   <button data-filter="letty">Letty Li (Individual Open Female)</button>
   <button data-filter="pair">Kuo &amp; Aaron (Intermediate Co-Ed Pair)</button>
 </div>
+</div>
 
+<div class="filter-row">
+  <span class="filter-label">View</span>
 <div class="viewtoggle" role="tablist" aria-label="Schedule view">
   <button data-view="list">List</button><button data-view="grid" class="active">Calendar</button>
+</div>
 </div>
 
 <section class="schedule" id="listview" style="display:none">
