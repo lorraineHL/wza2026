@@ -100,10 +100,10 @@ footer a{color:#0e7c8c}
 </div>
 
 <div class="viewtoggle" role="tablist" aria-label="Schedule view">
-  <button data-view="list" class="active">List</button><button data-view="grid">Calendar</button>
+  <button data-view="list">List</button><button data-view="grid" class="active">Calendar</button>
 </div>
 
-<section class="schedule" id="listview">
+<section class="schedule" id="listview" style="display:none">
   <h2>Schedule</h2>
   <!-- Cards are pre-sorted chronologically by earliest heat time within each day (TBD events last); the athlete filter only hides/shows cards, it does not reorder them. -->
 
@@ -332,7 +332,7 @@ footer a{color:#0e7c8c}
   </article>
 </section>
 
-<section class="gridsec" id="grid" style="display:none">
+<section class="gridsec" id="grid">
 <h2>Schedule Grid</h2>
 <p class="grid-note">Calendar-style view across the four stages — find time overlaps and where everyone is. All times PT. Blocks show division-level candidate heats; personal lane assignments are still pending. Block heights are approximate.</p>
 <h3 id="grid-fri">Friday · Sep 25</h3>
