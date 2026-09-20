@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Team clay · Cheer Hub — Wodapalooza SoCal 2026</title>
 <script>try{var s=localStorage.getItem("wza-theme");if(s){document.documentElement.setAttribute("data-theme",s)}else if(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches){document.documentElement.setAttribute("data-theme","dark")}}catch(e){}</script>
-<style>:root{--bg:#fdf6ec;--ink:#4a3f35;--card:#ffffff;--card-soft:#fffdf7;--card-warm:#fff8e7;--teal:#0e7c8c;--teal-dark:#0a6a78;--teal-deep:#0e5560;--teal-block:#0e7c8c;--pair-bg:#d96c1f;--orange:#d96c1f;--peach:#f6a55c;--brown:#7a4a1d;--muted:#a08a6d;--muted-warm:#7a6a5a;--muted-gold:#8a6d4a;--ink-soft:#6b5a48;--label:#5a4a38;--line:#ead9c2;--line-soft:#f3e3c8;--allday:#fff3e0}
-[data-theme="dark"]{--bg:#161210;--ink:#e7dac4;--card:#211a13;--card-soft:#251d14;--card-warm:#2a2113;--teal:#3fb6c7;--teal-dark:#2a8b99;--teal-deep:#5ccfe0;--teal-block:#0f7a8c;--pair-bg:#b25f16;--orange:#f2a55c;--peach:#8a5f28;--brown:#ecd3a3;--muted:#a89a7e;--muted-warm:#bcae94;--muted-gold:#bcae94;--ink-soft:#d6c7ae;--label:#d6c7ae;--line:#3d3222;--line-soft:#4a3b24;--allday:#2e2413}
+<style>:root{--teal-fill:#0e7c8c;--teal-fill-dark:#0a6a78;--bg:#fdf6ec;--ink:#4a3f35;--card:#ffffff;--card-soft:#fffdf7;--card-warm:#fff8e7;--teal:#0e7c8c;--teal-dark:#0a6a78;--teal-deep:#0e5560;--teal-block:#0e7c8c;--pair-bg:#d96c1f;--orange:#d96c1f;--peach:#f6a55c;--brown:#7a4a1d;--muted:#a08a6d;--muted-warm:#7a6a5a;--muted-gold:#8a6d4a;--ink-soft:#6b5a48;--label:#5a4a38;--line:#ead9c2;--line-soft:#f3e3c8;--allday:#fff3e0}
+[data-theme="dark"]{--teal-fill:#2a7d89;--teal-fill-dark:#1f5f6a;--bg:#161210;--ink:#e7dac4;--card:#211a13;--card-soft:#251d14;--card-warm:#2a2113;--teal:#3fb6c7;--teal-dark:#2a8b99;--teal-deep:#5ccfe0;--teal-block:#0f7a8c;--pair-bg:#b25f16;--orange:#f2a55c;--peach:#8a5f28;--brown:#ecd3a3;--muted:#a89a7e;--muted-warm:#bcae94;--muted-gold:#bcae94;--ink-soft:#d6c7ae;--label:#d6c7ae;--line:#3d3222;--line-soft:#4a3b24;--allday:#2e2413}
 [data-theme="dark"] .hero{background:linear-gradient(160deg,#083f47 0%,#0c5f6c 45%,#8a4d12 100%)}
 .hero{position:relative}
 .theme-toggle{position:absolute;top:1rem;right:1rem;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:1.25rem;width:2.6rem;height:2.6rem;border-radius:50%;cursor:pointer;line-height:1}
@@ -22,11 +22,11 @@ body{background:var(--bg);color:var(--ink);font-family:'Trebuchet MS','Segoe UI'
 .banner{background:var(--card-warm);border:2px solid var(--peach);border-radius:1.2rem;margin:1.8rem auto;max-width:54rem;padding:1.1rem 1.4rem;color:var(--brown);box-shadow:0 4px 14px rgba(246,165,92,.18)}
 .banner strong{color:var(--orange)}
 .daynav{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;padding:.3rem 1rem 1.4rem}
-.daynav a{background:var(--teal);color:#fff;font-weight:700;padding:.6rem 1.3rem;border-radius:999px;text-decoration:none;font-size:.88rem;box-shadow:0 3px 10px rgba(14,124,140,.3)}
-.daynav a:hover{background:var(--teal-dark)}
+.daynav a{background:var(--teal-fill);color:#fff;font-weight:700;padding:.6rem 1.3rem;border-radius:999px;text-decoration:none;font-size:.88rem;box-shadow:0 3px 10px rgba(14,124,140,.3)}
+.daynav a:hover{background:var(--teal-fill-dark)}
 .filter{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;padding:0 1rem 1.8rem}
 .filter button{border:2px solid var(--teal);background:var(--card);color:var(--teal);font-weight:800;font-size:.9rem;padding:.55rem 1.3rem;border-radius:999px;cursor:pointer;font-family:inherit}
-.filter button.active{background:var(--teal);color:#fff}
+.filter button.active{background:var(--teal-fill);color:#fff}
 section{max-width:54rem;margin:0 auto;padding:0 1.25rem 2.8rem}
 h2{font-size:1.6rem;font-weight:800;margin-bottom:1.2rem;color:var(--teal)}
 .day{background:var(--card);border-radius:1.4rem;padding:1.6rem;margin-bottom:1.8rem;box-shadow:0 6px 20px rgba(214,140,60,.10);scroll-margin-top:1rem}
@@ -79,7 +79,7 @@ footer a{color:var(--teal)}
 .viewtoggle button{border:2px solid var(--teal);background:var(--card);color:var(--teal);font-weight:700;padding:.55rem 1.6rem;font-size:.88rem;cursor:pointer}
 .viewtoggle button:first-child{border-radius:999px 0 0 999px;border-right:none}
 .viewtoggle button:last-child{border-radius:0 999px 999px 0}
-.viewtoggle button.active{background:var(--teal);color:#fff}
+.viewtoggle button.active{background:var(--teal-fill);color:#fff}
 
 .filter-row{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:0 0 1.2rem;flex-wrap:wrap}
 .filter-label{font-size:.88rem;font-weight:600;color:var(--label);flex-shrink:0}
