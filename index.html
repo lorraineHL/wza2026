@@ -3,39 +3,261 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Team clay · Cheer Hub — Pick a Style</title>
+<title>Team clay · Cheer Hub — Wodapalooza SoCal 2026</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f6f7f9;color:#1f2937;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:2rem 1.25rem}
-main{max-width:34rem;text-align:center}
-h1{font-size:1.9rem;font-weight:800;margin-bottom:.5rem}
-p.sub{color:#6b7280;margin-bottom:2rem}
-.cards{display:grid;gap:1rem}
-a.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #e5e7eb;border-radius:.9rem;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-a.card:hover{border-color:#9ca3af}
-a.card h2{font-size:1.25rem;margin-bottom:.35rem}
-a.card p{color:#6b7280;font-size:.93rem}
-.swatches{display:flex;gap:.4rem;justify-content:center;margin-bottom:.8rem}
-.sw{width:2rem;height:2rem;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #d1d5db}
-footer{margin-top:2rem;color:#9ca3af;font-size:.82rem}
+body{background:#fdf6ec;color:#4a3f35;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;line-height:1.6}
+.hero{background:linear-gradient(160deg,#0e7c8c 0%,#1595a8 45%,#f6a55c 100%);color:#fff;padding:3.5rem 1.25rem 3rem;text-align:center;border-radius:0 0 2.5rem 2.5rem}
+.kicker{font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;margin-bottom:.9rem;opacity:.92}
+.hero h1{font-size:clamp(1.9rem,6.5vw,3.2rem);font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.18)}
+.hero .meta{margin-top:1rem;opacity:.95}
+.hero .tagline{margin-top:.4rem;opacity:.85;font-style:italic}
+.banner{background:#fff8e7;border:2px solid #f6a55c;border-radius:1.2rem;margin:1.8rem auto;max-width:54rem;padding:1.1rem 1.4rem;color:#7a4a1d;box-shadow:0 4px 14px rgba(246,165,92,.18)}
+.banner strong{color:#d96c1f}
+.daynav{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;padding:.3rem 1rem 1.4rem}
+.daynav a{background:#0e7c8c;color:#fff;font-weight:700;padding:.6rem 1.3rem;border-radius:999px;text-decoration:none;font-size:.88rem;box-shadow:0 3px 10px rgba(14,124,140,.3)}
+.daynav a:hover{background:#0a6a78}
+.filter{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;padding:0 1rem 1.8rem}
+.filter button{border:2px solid #0e7c8c;background:#fff;color:#0e7c8c;font-weight:800;font-size:.9rem;padding:.55rem 1.3rem;border-radius:999px;cursor:pointer;font-family:inherit}
+.filter button.active{background:#0e7c8c;color:#fff}
+section{max-width:54rem;margin:0 auto;padding:0 1.25rem 2.8rem}
+h2{font-size:1.6rem;font-weight:800;margin-bottom:1.2rem;color:#0e7c8c}
+.athlete-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem}
+.athlete-card{background:#fff;border-radius:1.4rem;padding:1.6rem;box-shadow:0 6px 20px rgba(214,140,60,.12);border-top:5px solid #f6a55c}
+.athlete-card h3{font-size:1.4rem;font-weight:800;color:#d96c1f}
+.athlete-card .division{color:#0e7c8c;font-weight:700;margin:.3rem 0 .6rem;font-size:.9rem}
+.athlete-card p{color:#7a6a5a}
+.day{background:#fff;border-radius:1.4rem;padding:1.6rem;margin-bottom:1.8rem;box-shadow:0 6px 20px rgba(214,140,60,.10);scroll-margin-top:1rem}
+.day h3{font-size:1.3rem;font-weight:800;color:#0e7c8c;margin-bottom:1.1rem}
+.event{background:#fffdf7;border:1.5px solid #f3e3c8;border-radius:1rem;padding:1.2rem 1.3rem;margin-bottom:1.1rem}
+.event.hidden{display:none}
+.who{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .7rem;border-radius:999px;margin-bottom:.55rem}
+.who.indy{background:#0e7c8c;color:#fff}
+.who.pair{background:#ff7a45;color:#fff}
+.who.both{background:#f3e3c8;color:#7a4a1d}
+.event h4{font-size:1.25rem;font-weight:800}
+.venue{color:#a08a6d;font-size:.9rem;margin:.15rem 0 .55rem}
+.heats{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+.heats li{background:#fff;border:1.5px solid #f6a55c;color:#7a4a1d;padding:.32rem .8rem;border-radius:999px;font-size:.88rem;font-weight:600}
+.note{color:#a08a6d;font-size:.85rem;margin-top:.4rem;font-style:italic}
+.workout{margin-top:.85rem;background:#fff8e7;border-radius:.8rem;padding:.7rem 1rem}
+.workout summary{cursor:pointer;font-weight:800;color:#d96c1f}
+.workout p{margin-top:.5rem;color:#6b5a48;font-size:.94rem}
+.squad{background:#fff;border:2px dashed #0e7c8c;border-radius:1.4rem;padding:2rem;text-align:center}
+.squad h2{color:#0e7c8c}
+.squad p{color:#7a6a5a}
+footer{max-width:54rem;margin:0 auto;padding:2rem 1.25rem 3.5rem;color:#a08a6d;font-size:.82rem;text-align:center}
+footer a{color:#0e7c8c}
 </style>
 </head>
 <body>
-<main>
-<h1>Team clay · Cheer Hub</h1>
-<p class="sub">Pick a style to preview the internal Wodapalooza SoCal 2026 cheer site.</p>
-<div class="cards">
-<a class="card" href="variants/sporty.html">
-<div class="swatches"><span class="sw" style="background:#0c0d10"></span><span class="sw" style="background:#c8ff2e"></span><span class="sw" style="background:#ff5d3a"></span></div>
-<h2>Sporty</h2><p>Dark CrossFit vibe — bold condensed headings, high-contrast lime accent.</p></a>
-<a class="card" href="variants/clean.html">
-<div class="swatches"><span class="sw" style="background:#ffffff"></span><span class="sw" style="background:#2563eb"></span><span class="sw" style="background:#e5e7eb"></span></div>
-<h2>Clean</h2><p>Light and minimal — generous whitespace, easy schedule reading.</p></a>
-<a class="card" href="variants/beachy.html">
-<div class="swatches"><span class="sw" style="background:#fdf6ec"></span><span class="sw" style="background:#0e7c8c"></span><span class="sw" style="background:#ff7a45"></span></div>
-<h2>Beachy</h2><p>SoCal beach vibe — sand, sea and sunset palette, friendly and rounded.</p></a>
+<header class="hero">
+  <p class="kicker">Internal · Team clay cheer hub</p>
+  <h1>Gymreapers Wodapalooza SoCal 2026</h1>
+  <p class="meta">September 25–27, 2026 · Huntington Beach Pier<br>325 Pacific Coast Highway, Huntington Beach, CA</p>
+  <p class="tagline">One page for our athletes and the cheer squad. All times PT.</p>
+</header>
+
+<div class="banner">
+  <strong>Individual heats coming soon</strong> — per-athlete heat/lane assignments are not published yet.
+  Schedules below are division-level.
 </div>
-<footer>Internal preview · Gymreapers Wodapalooza SoCal 2026 · Sept 25–27 · Huntington Beach Pier</footer>
-</main>
+
+<nav class="daynav">
+  <a href="#fri">Friday · Sep 25</a>
+  <a href="#sat">Saturday · Sep 26</a>
+  <a href="#sun">Sunday · Sep 27</a>
+</nav>
+
+<div class="filter" id="athleteFilter">
+  <button data-filter="all" class="active">All</button>
+  <button data-filter="letty">Letty Li</button>
+  <button data-filter="pair">Kuo &amp; Aaron</button>
+</div>
+
+<section class="athletes">
+  <h2>Athletes</h2>
+  <div class="athlete-grid">
+    <div class="athlete-card">
+      <h3>Letty Li</h3>
+      <p class="division">Open Female · Individual</p>
+      <p>6 events across 3 days · Vinia Lifting Stage, Sandbox Stage, Gymreapers Arena, Public Beach</p>
+    </div>
+    <div class="athlete-card">
+      <h3>Kuo Xu &amp; Aaron</h3>
+      <p class="division">Intermediate Co-Ed Pair · Team clay</p>
+      <p>6 events across 3 days · Vinia Lifting Stage, Sandbox Stage, Gymreapers Arena, Public Beach</p>
+    </div>
+  </div>
+</section>
+
+<section class="schedule">
+  <h2>Schedule</h2>
+  <!-- Cards are pre-sorted chronologically by earliest heat time within each day (TBD events last); the athlete filter only hides/shows cards, it does not reorder them. -->
+
+  <article class="day" id="fri">
+    <h3>Friday · September 25</h3>
+    <!-- Chronological: 8:15 AM, 1:30 PM, 1:54 PM, TBD -->
+
+    <div class="event" data-athlete="letty">
+      <span class="who indy">Letty · Open Female</span>
+      <h4>Under Pressure 1</h4>
+      <p class="venue">Vinia Lifting Stage</p>
+      <ul class="heats"><li>Heat 1 · 8:15 AM</li><li>Heat 2 · 8:35 AM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>Three 5-minute sections. 0:00–5:00: 150 Heavy Double Unders. 5:00–10:00: max unbroken parallete handstand hold (unlimited attempts). 10:00–15:00: 12-9-6-3 Clean &amp; Jerks (increasing weight). Each part is 33.3% of the event score.</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="letty">
+      <span class="who indy">Letty · Open Female</span>
+      <h4>Deadweight</h4>
+      <p class="venue">Sandbox Stage</p>
+      <ul class="heats"><li>Heat 11 · 1:30 PM</li><li>Heat 12 · 1:46 PM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 11-min cap. 21 Sandbag Squats / 12 Bar Muscle-Ups / 21 Sandbag Over the Log / 12 Bar Muscle-Ups / 21 Sandbag Squats. (Sandbag weight per division.)</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="pair">
+      <span class="who pair">Kuo &amp; Aaron · Intermediate Co-Ed Pair</span>
+      <h4>Two Rounds Too Many</h4>
+      <p class="venue">Gymreapers Arena</p>
+      <ul class="heats"><li>Heat 15 · 1:54 PM</li><li>Heat 16 · 2:19 PM</li><li>Heat 17 · 2:44 PM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 21-min cap. 6 Rope Climbs (split) / 30 Wall Balls (split) / 60 ft Handstand Walk (alternate every 30 ft) / 30 Cal Ski (split) — then immediately repeat all + an extra 60 ft Handstand Walk — then immediately repeat all + 30 Box Jump Overs (waterfall).</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="letty pair">
+      <span class="who both">Everyone · Golden Hour</span>
+      <h4>Golden Hour</h4>
+      <p class="venue">Public Beach</p>
+      <ul class="heats"><li>Time TBD</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>4K beach run.</p>
+      </details>
+    </div>
+  </article>
+
+  <article class="day" id="sat">
+    <h3>Saturday · September 26</h3>
+    <!-- Chronological: 8:00 AM, 9:24 AM, 1:30 PM, 5:25 PM -->
+
+    <div class="event" data-athlete="letty">
+      <span class="who indy">Letty · Open Female</span>
+      <h4>Two Rounds Too Many</h4>
+      <p class="venue">Gymreapers Arena</p>
+      <ul class="heats"><li>Heat 1 · 8:00 AM</li><li>Heat 2 · 8:25 AM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>2 rounds for time · 20-min cap. Each round: 2 Rope Climbs / 30 Wall Balls / 2 Rope Climbs / 30 Toes-to-Bar / 2 Rope Climbs / 30/24 Cal Ski / 2 Rope Climbs / 30 Box Jump Overs.</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="pair">
+      <span class="who pair">Kuo &amp; Aaron · Intermediate Co-Ed Pair</span>
+      <h4>Redline</h4>
+      <p class="venue">Sandbox Stage</p>
+      <ul class="heats"><li>Heat 5 · 9:24 AM</li><li>Heat 6 · 9:38 AM</li><li>Heat 7 · 9:52 AM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 9-min cap. 15 Burpees Over the Log / 300 ft Double KB Farmer Carry (together) / 45 Synchro Chest-to-Bar Pull-Ups / 300 ft Carry (together) / 15 Burpees Over the Log. (KB weight per division.)</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="pair">
+      <span class="who pair">Kuo &amp; Aaron · Intermediate Co-Ed Pair</span>
+      <h4>Under Pressure 1 &amp; 2</h4>
+      <p class="venue">Vinia Lifting Stage</p>
+      <ul class="heats"><li>Heat 15 · 1:30 PM</li><li>Heat 16 · 1:50 PM</li><li>Heat 17 · 2:10 PM</li></ul>
+      <p class="note">UP1 &amp; UP2 run in parallel on two platforms.</p>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>15 minutes · two scores. Part 1 (0:00–7:00): 300 Heavy Double Unders (split as desired), then max calories on the rower — alternate every 15 cal. Part 2 (7:00–15:00): 24-20-16 Clean &amp; Jerks (weights 1–3), then max Clean &amp; Jerks at the final weight. Scores: total calories + total Clean &amp; Jerk reps.</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="letty">
+      <span class="who indy">Letty · Open Female</span>
+      <h4>Redline</h4>
+      <p class="venue">Sandbox Stage</p>
+      <ul class="heats"><li>Heat 30 · 5:25 PM</li><li>Heat 31 · 5:36 PM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 7-min cap. 45 Chest-to-Bar Pull-Ups / 300 ft Double KB Farmer Carry / 15 Burpee Get-Overs. (KB weight per division.)</p>
+      </details>
+    </div>
+  </article>
+
+  <article class="day" id="sun">
+    <h3>Sunday · September 27</h3>
+    <!-- Chronological: 8:00 AM, 9:42 AM, 11:36 AM -->
+
+    <div class="event" data-athlete="letty">
+      <span class="who indy">Letty · Open Female</span>
+      <h4>Echo on Randy</h4>
+      <p class="venue">Vinia Lifting Stage</p>
+      <ul class="heats"><li>Heat 1 · 8:00 AM</li><li>Heat 2 · 8:13 AM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 1-2-3 minute work intervals with 1:00 rest between. 75/55 Cal Echo Bike / 75 Snatches. Barbell 75/55 lb.</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="pair">
+      <span class="who pair">Kuo &amp; Aaron · Intermediate Co-Ed Pair</span>
+      <h4>Deadweight</h4>
+      <p class="venue">Sandbox Stage</p>
+      <ul class="heats"><li>Heat 4 · 9:42 AM</li><li>Heat 5 · 10:01 AM</li><li>Heat 6 · 10:20 AM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 3-4-5 minute work intervals with 1:00 rest between · 14-min cap. Each interval buy-in: 10 Bar Complexes + 20 Synchro Sandbag Squats, then max alternating Sandbag Over the Log until 40 total. Intermediate: sandbag 100/70 lb; Bar Complex = 2 Toes-to-Bar + 1 Bar Muscle-Up.</p>
+      </details>
+    </div>
+
+    <div class="event" data-athlete="pair">
+      <span class="who pair">Kuo &amp; Aaron · Intermediate Co-Ed Pair</span>
+      <h4>Echo on Randy</h4>
+      <p class="venue">Vinia Lifting Stage</p>
+      <ul class="heats"><li>Heat 16 · 11:36 AM</li><li>Heat 17 · 11:53 AM</li><li>Heat 18 · 12:10 PM</li></ul>
+      <details class="workout">
+        <summary>Workout details</summary>
+        <p>For Time · 12-min cap · you-go-I-go alternating full rounds. 12/9 Cal Echo Bike / 21-18-15-12-9 Snatches. Barbell 75/55 lb.</p>
+      </details>
+    </div>
+  </article>
+</section>
+
+<section class="squad" id="squad">
+  <h2>Cheer Squad Info</h2>
+  <p>Coming soon — meetup spot, parking &amp; spectating tips.</p>
+</section>
+
+<footer>
+  <p>Internal page for Team clay athletes &amp; cheer squad. Not affiliated with Wodapalooza.</p>
+  <p>Sources: <a href="https://competitioncorner.net/events/2026-gymreapers-wodapalooza-socal-f87f/schedule">Competition Corner — event schedule</a> ·
+  <a href="https://socal.wodapalooza.com/indy-community-workouts-2026">Indy workouts</a> ·
+  <a href="https://socal.wodapalooza.com/pair-community-workouts-2026">Pair workouts</a></p>
+</footer>
+
+<script>
+document.querySelectorAll('#athleteFilter button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#athleteFilter button').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    var f = btn.getAttribute('data-filter');
+    document.querySelectorAll('.event').forEach(function(card){
+      var tags = card.getAttribute('data-athlete').split(' ');
+      card.classList.toggle('hidden', f !== 'all' && tags.indexOf(f) === -1);
+    });
+  });
+});
+</script>
+
 </body>
 </html>
