@@ -543,7 +543,7 @@ document.querySelectorAll('#athleteFilter button').forEach(function(btn){
 <script>
 (function(){
   var btn=document.getElementById("themeToggle");
-  function paint(){if(btn){btn.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"\u2600\uFE0F":"\U0001F319";}}
+  function paint(){if(btn){btn.textContent=document.documentElement.getAttribute("data-theme")==="dark"?"\u2600\uFE0F":"\ud83c\udf19";}}
   function set(m){document.documentElement.setAttribute("data-theme",m);try{localStorage.setItem("wza-theme",m);}catch(e){}paint();}
   paint();
   if(btn){btn.addEventListener("click",function(){set(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");});}
