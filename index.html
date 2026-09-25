@@ -163,82 +163,6 @@ footer a{color:var(--teal)}
 </div>
 </div>
 
-<section class="leaderboard" id="leaderboard">
-  <h2>Leaderboard</h2>
-  <p class="lb-note">Scores for our athletes · Updated <span id="lbUpdated">—</span> · Source: <a href="https://competitioncorner.net/ff/20823/results/schedule">Competition Corner</a></p>
-  <div class="lb-grid" id="lbGrid"></div>
-</section>
-
-<script>
-/* ============================================================
-   TEAM CLAY LEADERBOARD DATA
-   Hourly watch: update this object when new scores post on
-   Competition Corner, then push. Keep "updated" current (PT).
-   - score: display string (time / reps / weight)
-   - pts: event points, rank: event rank (omit if unknown)
-   - status: "done" | "upcoming"; win:true adds an EVENT WIN badge
-   ============================================================ */
-var TEAM_SCORES = {
-  updated: "Fri Sep 25 · 9:40 AM PT",
-  athletes: [
-    {
-      name: "Letty Li", division: "Open Female · Individual", cls: "letty",
-      overallRank: 3, overallPts: 72,
-      events: [
-        { name: "Under Pressure 1", status: "done", score: "01:06.82", pts: 28, rank: 4 },
-        { name: "Under Pressure 2", status: "done", score: "02:15.57", pts: 33.33, rank: 1, win: true },
-        { name: "Deadweight", status: "upcoming", note: "Today · 1:46 PM" },
-        { name: "Golden Hour", status: "upcoming", note: "Tonight · 6:45 PM" },
-        { name: "Two Rounds Too Many", status: "upcoming", note: "Sat" },
-        { name: "Redline", status: "upcoming", note: "Sat" },
-        { name: "Echo on Randy", status: "upcoming", note: "Sun" }
-      ]
-    },
-    {
-      name: "Kuo Xu & Aaron", division: "Intermediate Co-Ed Pair · Team clay", cls: "pair",
-      overallRank: null, overallPts: null,
-      events: [
-        { name: "Two Rounds Too Many", status: "upcoming", note: "Today · 2:19 PM" },
-        { name: "Golden Hour", status: "upcoming", note: "Tonight · 6:45 PM" },
-        { name: "Redline", status: "upcoming", note: "Sat" },
-        { name: "Under Pressure 1 & 2", status: "upcoming", note: "Sat" },
-        { name: "Deadweight", status: "upcoming", note: "Sun" },
-        { name: "Echo on Randy", status: "upcoming", note: "Sun" }
-      ]
-    }
-  ]
-};
-(function(){
-  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
-  var grid = document.getElementById('lbGrid');
-  if (!grid) return;
-  document.getElementById('lbUpdated').textContent = TEAM_SCORES.updated;
-  TEAM_SCORES.athletes.forEach(function(a){
-    var card = document.createElement('div');
-    card.className = 'lb-card ' + a.cls;
-    var html = '<h3>' + esc(a.name) + '</h3><p class="division">' + esc(a.division) + '</p>';
-    if (a.overallRank) {
-      html += '<div class="lb-overall"><span class="lb-rank">#' + a.overallRank + '</span><span class="lb-pts">overall · ' + a.overallPts + ' pts</span></div>';
-    } else {
-      html += '<div class="lb-overall"><span class="lb-rank">–</span><span class="lb-pts">no scores yet</span></div>';
-    }
-    html += '<ul class="lb-events">';
-    a.events.forEach(function(e){
-      html += '<li><span class="ev-name">' + esc(e.name) + (e.win ? '<span class="ev-win">WIN</span>' : '') + '</span>';
-      if (e.status === 'done') {
-        html += '<span class="ev-score"><strong>' + esc(e.score) + '</strong> · #' + e.rank + ' · ' + e.pts + ' pts</span>';
-      } else {
-        html += '<span class="ev-score ev-upcoming">' + esc(e.note || 'upcoming') + '</span>';
-      }
-      html += '</li>';
-    });
-    html += '</ul>';
-    card.innerHTML = html;
-    grid.appendChild(card);
-  });
-})();
-</script>
-
 <section class="schedule" id="listview" style="display:none">
   <h2>Schedule</h2>
   <!-- Cards are pre-sorted chronologically by earliest heat time within each day (TBD events last); the athlete filter only hides/shows cards, it does not reorder them. -->
@@ -543,6 +467,82 @@ var TEAM_SCORES = {
 </tbody></table></div>
 </section>
 
+<section class="leaderboard" id="leaderboard">
+  <h2>Leaderboard</h2>
+  <p class="lb-note">Scores for our athletes · Updated <span id="lbUpdated">—</span> · Source: <a href="https://competitioncorner.net/ff/20823/results/schedule">Competition Corner</a></p>
+  <div class="lb-grid" id="lbGrid"></div>
+</section>
+
+<script>
+/* ============================================================
+   TEAM CLAY LEADERBOARD DATA
+   Hourly watch: update this object when new scores post on
+   Competition Corner, then push. Keep "updated" current (PT).
+   - score: display string (time / reps / weight)
+   - pts: event points, rank: event rank (omit if unknown)
+   - status: "done" | "upcoming"; win:true adds an EVENT WIN badge
+   ============================================================ */
+var TEAM_SCORES = {
+  updated: "Fri Sep 25 · 9:40 AM PT",
+  athletes: [
+    {
+      name: "Letty Li", division: "Open Female · Individual", cls: "letty",
+      overallRank: 3, overallPts: 72,
+      events: [
+        { name: "Under Pressure 1", status: "done", score: "01:06.82", pts: 28, rank: 4 },
+        { name: "Under Pressure 2", status: "done", score: "02:15.57", pts: 33.33, rank: 1, win: true },
+        { name: "Deadweight", status: "upcoming", note: "Today · 1:46 PM" },
+        { name: "Golden Hour", status: "upcoming", note: "Tonight · 6:45 PM" },
+        { name: "Two Rounds Too Many", status: "upcoming", note: "Sat" },
+        { name: "Redline", status: "upcoming", note: "Sat" },
+        { name: "Echo on Randy", status: "upcoming", note: "Sun" }
+      ]
+    },
+    {
+      name: "Kuo Xu & Aaron", division: "Intermediate Co-Ed Pair · Team clay", cls: "pair",
+      overallRank: null, overallPts: null,
+      events: [
+        { name: "Two Rounds Too Many", status: "upcoming", note: "Today · 2:19 PM" },
+        { name: "Golden Hour", status: "upcoming", note: "Tonight · 6:45 PM" },
+        { name: "Redline", status: "upcoming", note: "Sat" },
+        { name: "Under Pressure 1 & 2", status: "upcoming", note: "Sat" },
+        { name: "Deadweight", status: "upcoming", note: "Sun" },
+        { name: "Echo on Randy", status: "upcoming", note: "Sun" }
+      ]
+    }
+  ]
+};
+(function(){
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+  var grid = document.getElementById('lbGrid');
+  if (!grid) return;
+  document.getElementById('lbUpdated').textContent = TEAM_SCORES.updated;
+  TEAM_SCORES.athletes.forEach(function(a){
+    var card = document.createElement('div');
+    card.className = 'lb-card ' + a.cls;
+    var html = '<h3>' + esc(a.name) + '</h3><p class="division">' + esc(a.division) + '</p>';
+    if (a.overallRank) {
+      html += '<div class="lb-overall"><span class="lb-rank">#' + a.overallRank + '</span><span class="lb-pts">overall · ' + a.overallPts + ' pts</span></div>';
+    } else {
+      html += '<div class="lb-overall"><span class="lb-rank">–</span><span class="lb-pts">no scores yet</span></div>';
+    }
+    html += '<ul class="lb-events">';
+    a.events.forEach(function(e){
+      html += '<li><span class="ev-name">' + esc(e.name) + (e.win ? '<span class="ev-win">WIN</span>' : '') + '</span>';
+      if (e.status === 'done') {
+        html += '<span class="ev-score"><strong>' + esc(e.score) + '</strong> · #' + e.rank + ' · ' + e.pts + ' pts</span>';
+      } else {
+        html += '<span class="ev-score ev-upcoming">' + esc(e.note || 'upcoming') + '</span>';
+      }
+      html += '</li>';
+    });
+    html += '</ul>';
+    card.innerHTML = html;
+    grid.appendChild(card);
+  });
+})();
+</script>
+
 <section class="squad" id="squad">
   <h2>Cheer Squad Info</h2>
   <h3>Parking</h3>
@@ -573,7 +573,6 @@ document.querySelectorAll('#athleteFilter button').forEach(function(btn){
 });
 </script>
 
-
 <script>
 (function(){
   var list = document.getElementById('listview');
@@ -600,14 +599,12 @@ document.querySelectorAll('#athleteFilter button').forEach(function(btn){
 })();
 </script>
 
-
 <div class="modal-overlay" id="workoutModal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-label="Workout details">
     <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
     <div id="modalBody"></div>
   </div>
 </div>
-
 
 <script>
 (function(){
