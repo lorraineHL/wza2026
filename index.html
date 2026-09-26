@@ -65,6 +65,9 @@ footer a{color:var(--teal)}
 .leaderboard h2{text-align:center}
 .lb-note{text-align:center;color:var(--muted-warm);font-size:.85rem;margin:-.8rem 0 1.4rem}
 .lb-note a{color:var(--teal)}
+.lb-official{text-align:center;margin:0 0 .4rem}
+.lb-official a{color:var(--teal);font-weight:600;text-decoration:none}
+.lb-official a:hover{text-decoration:underline}
 .lb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.2rem}
 .lb-card{background:var(--card);border-radius:1.4rem;padding:1.5rem 1.6rem;box-shadow:0 6px 20px rgba(214,140,60,.12);border-top:5px solid var(--peach)}
 .lb-card.letty{border-top-color:var(--letty-fill)}
@@ -471,6 +474,7 @@ footer a{color:var(--teal)}
   <h2>Leaderboard</h2>
   <p class="lb-note">Scores for our athletes · Updated <span id="lbUpdated">—</span> · Source: <a href="https://competitioncorner.net/ff/20823/results/schedule">Competition Corner</a></p>
   <div class="lb-grid" id="lbGrid"></div>
+  <p class="lb-official"><a href="https://competitioncorner.net/ff/20823/results/schedule" target="_blank" rel="noopener">Check live rankings on Competition Corner →</a></p>
 </section>
 
 <script>
