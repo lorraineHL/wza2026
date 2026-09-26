@@ -138,7 +138,7 @@ footer a{color:var(--teal)}
 
 <div class="banner">
   <strong>Sat heats update</strong> — Kuo &amp; Aaron: Redline H5 · Lane 13 (9:24 AM), Under Pressure 1 &amp; 2 H15 · Lane 13 (1:30 PM).
-  Letty: Two Rounds Too Many H2 · Lane 10 (8:25 AM); Redline heats/lanes still TBD. Schedules below are division-level.
+  Letty: Two Rounds Too Many H2 · Lane 10 (8:25 AM), Redline H31 · Lane 15 (5:36 PM). Schedules below are division-level.
 </div>
 
 <nav class="daynav">
@@ -312,7 +312,7 @@ footer a{color:var(--teal)}
       <span class="who indy">Letty · Open Female</span>
       <h4>Redline</h4>
       <p class="venue">Sandbox Stage</p>
-      <ul class="heats"><li>Heat 30 · 5:25 PM</li><li>Heat 31 · 5:36 PM</li></ul>
+      <ul class="heats"><li>Heat 31 · 5:36 PM · Lane 15</li></ul>
       <details class="workout">
         <summary>Workout details</summary>
         <p><strong>For Time</strong><br>45 Pull Ups<br>300' Double KB Farmer Carry<br>15 Burpees Over the Log</p>
@@ -438,7 +438,7 @@ footer a{color:var(--teal)}
 <tr><td class="time">3:30 PM</td><td></td><td></td><td></td></tr>
 <tr><td class="time">4:00 PM</td><td></td><td></td><td></td></tr>
 <tr><td class="time">4:30 PM</td><td></td><td></td><td></td></tr>
-<tr><td class="time">5:00 PM</td><td></td><td class="block letty" data-key="sat-red-letty" title="Tap for workout details" rowspan="2"><strong>Redline</strong><span class="who">Letty</span><span class="heats">H30 5:25 PM / H31 5:36 PM</span></td><td></td></tr>
+<tr><td class="time">5:00 PM</td><td></td><td class="block letty" data-key="sat-red-letty" title="Tap for workout details" rowspan="2"><strong>Redline</strong><span class="who">Letty</span><span class="heats">H31 · 5:36 PM · Lane 15</span></td><td></td></tr>
 <tr><td class="time">5:30 PM</td><td></td><td></td></tr>
 </tbody></table></div>
 <h3 id="grid-sun">Sunday · Sep 27</h3>
@@ -483,17 +483,17 @@ footer a{color:var(--teal)}
    - status: "done" | "upcoming"; win:true adds an EVENT WIN badge
    ============================================================ */
 var TEAM_SCORES = {
-  updated: "Fri Sep 25 · 4:20 PM PT",
+  updated: "Fri Sep 25 · 9:35 PM PT",
   athletes: [
     {
       name: "Letty Li", division: "Open Female · Individual", cls: "letty",
-      overallRank: 10, overallPts: 128,
+      overallRank: 3, overallPts: 216,
       events: [
         { name: "Under Pressure 1", status: "done", score: "01:06.82", pts: 28, rank: 4 },
         { name: "Under Pressure 2", status: "done", score: "02:15.57", pts: 33.33, rank: 1, win: true },
         { name: "Under Pressure 3", status: "done", score: "CAP +24", pts: 10.67, rank: 24 },
         { name: "Deadweight", status: "done", score: "08:10.19", pts: 56, rank: 12 },
-        { name: "Golden Hour", status: "upcoming", note: "Tonight · 6:45 PM" },
+        { name: "Golden Hour", status: "done", score: "00:31:48.35", pts: 88, rank: 3 },
         { name: "Two Rounds Too Many", status: "upcoming", note: "Sat" },
         { name: "Redline", status: "upcoming", note: "Sat" },
         { name: "Echo on Randy", status: "upcoming", note: "Sun" }
@@ -501,10 +501,10 @@ var TEAM_SCORES = {
     },
     {
       name: "Kuo Xu & Aaron", division: "Intermediate Co-Ed Pair · Team clay", cls: "pair",
-      overallRank: 44, overallPts: 16,
+      overallRank: 49, overallPts: 26,
       events: [
         { name: "Two Rounds Too Many", status: "done", score: "CAP +189", pts: 16, rank: 44 },
-        { name: "Golden Hour", status: "upcoming", note: "Tonight · 6:45 PM" },
+        { name: "Golden Hour", status: "done", score: "01:06:22.95", pts: 10, rank: 50 },
         { name: "Redline", status: "upcoming", note: "Sat" },
         { name: "Under Pressure 1 & 2", status: "upcoming", note: "Sat" },
         { name: "Deadweight", status: "upcoming", note: "Sun" },
